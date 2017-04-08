@@ -104,9 +104,9 @@ For the Chicago, Seattle, Philadelphia, and Atlanta metropolitan areas:
 
 * __Education__ strongly associated with living nearer to the urban core across all four metropolitan areas
 
-* __Living with parents__ associated with residential location farther from the urban core in all four metros; __marriage__ and __children in the home__ also positively associated with distance from the core in Seattle, Chicago, and Atlanta
+* __Living with parents__, __marriage__ and __children in the home__ associated with residential location farther from the urban core in all four metros
 
-* __Blue collar employment__ associated with residential location farther from the core in Seattle and Atlanta
+* __White collar employment__ strongly associated with residential location nearer to the urban core in Seattle and Atlanta; weaker association in Chicago and Philadelphia
 
 
 

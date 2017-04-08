@@ -90,7 +90,7 @@ sea_hall <- c(-122.3298441, 47.6038962) %>%
   st_sfc(crs = 4269) %>%
   st_transform(26910)
 
-phi_hall <- c(-79.9968357, 40.4381033) %>%
+phi_hall <- c(-75.1635996, 39.953168) %>%
   st_point() %>%
   st_sfc(crs = 4269) %>%
   st_transform(26918)
