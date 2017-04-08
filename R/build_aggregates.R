@@ -15,14 +15,21 @@ lq <- function(group, total) {
 }
 
 
-lq_map <- function(dataset) {
+lq_map <- function(dataset, hall) {
+  
+  ring <- st_buffer(hall, 20000) %>%
+    st_intersection(dataset) %>%
+    st_union() %>%
+    st_sf()
   
   dataset %>%
     tm_shape() + 
     tm_fill(col = c("lqba", "lqnoba"), palette = viridis(7), n = 7, 
             style = "quantile", title = "Location quotient") + 
     tm_facets(free.scales = FALSE) + 
-    tm_layout(panel.labels = c("With degree", "Without degree"))
+    tm_layout(panel.labels = c("With degree", "Without degree")) + 
+    tm_shape(ring) + 
+    tm_borders(col = "black")
   
 }
 
@@ -167,16 +174,16 @@ ggsave("img/atlanta_profile.png", lq_plot(atl_tracts),
        dpi = 300, width = 8, height = 5.5)
 
 
-save_tmap(lq_map(chi_tracts), "img/chicago_map.png", dpi = 300, 
+save_tmap(lq_map(chi_tracts, chi_hall), "img/chicago_map.png", dpi = 300, 
           width = 8.5, height = 4.5)
 
-save_tmap(lq_map(sea_tracts), "img/seattle_map.png", dpi = 300, 
+save_tmap(lq_map(sea_tracts, sea_hall), "img/seattle_map.png", dpi = 300, 
           width = 8.5, height = 4.5)
 
-save_tmap(lq_map(phi_tracts), "img/philly_map.png", dpi = 300, 
+save_tmap(lq_map(phi_tracts, phi_hall), "img/philly_map.png", dpi = 300, 
           width = 8.5, height = 4.5)
 
-save_tmap(lq_map(atl_tracts), "img/atlanta_map.png", dpi = 300, 
+save_tmap(lq_map(atl_tracts, atl_hall), "img/atlanta_map.png", dpi = 300, 
           width = 8.5, height = 4.5)
 
 
